@@ -1,6 +1,8 @@
 <template>
   <div class="products">
     <h1>This is a {{ appName }}</h1>
+    <button v-on:click="getProducts()">Get Products</button>
+    <h3>{{error}}</h3>
   </div>
 </template>
 
