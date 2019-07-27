@@ -1,5 +1,6 @@
 <template>
   <div class="products">
+    <wait-cursor message="Getting Products ..." v-bind:busy="isBusy"></wait-cursor>
     <h1>This is a {{ appName }}</h1>
     <button @click="getProducts()">
       Get Products
@@ -7,10 +8,8 @@
     <h3>{{ error }}</h3>
     <h3>Products ...</h3>
     <ul>
-      <li
-        v-for="product in products"
-        :key="product"
-      >
+      <li v-for="product in products"
+          :key="product">
         {{ product.name }}
       </li>
     </ul>
@@ -19,7 +18,13 @@
 
 <script>
 import axios from 'axios'
-export default {
+import WaitCursor from '@/components/WaitCursor.vue'
+
+  export default {
+  name: 'Products',
+  components: {
+    WaitCursor
+  },
   data () {
     return {
       appName: 'Products page',
