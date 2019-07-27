@@ -1,12 +1,17 @@
 <template>
   <div class="products">
     <h1>This is a {{ appName }}</h1>
-    <button v-on:click="getProducts()">Get Products</button>
-    <h3>{{error}}</h3>
+    <button @click="getProducts()">
+      Get Products
+    </button>
+    <h3>{{ error }}</h3>
     <h3>Products ...</h3>
     <ul>
-      <li v-for="product in products">
-        {{ product }}
+      <li
+        v-for="product in products"
+        :key="product"
+      >
+        {{ product.name }}
       </li>
     </ul>
   </div>

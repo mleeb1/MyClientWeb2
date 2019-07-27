@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using MyClientWeb2.Api.Models;
 
 namespace MyClientWeb2.Api.Controllers
 {
@@ -9,27 +10,31 @@ namespace MyClientWeb2.Api.Controllers
     {
         // GET api/products
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Product>> Get()
         {
-            return new string[] { "product1", "product2" };
+            return new List<Product>
+            {
+                new Product { Id = 1, Name = "Product 1", Cost = 10.50M },
+                new Product { Id = 2, Name = "Product 2", Cost = 5.50M }
+            };
         }
 
         // GET api/products/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Product> Get(int id)
         {
-            return "product1";
+            return new Product {Id = 1, Name = "Product 1", Cost = 10.50M};
         }
 
         // POST api/products
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Product value)
         {
         }
 
         // PUT api/products/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Product value)
         {
         }
 
