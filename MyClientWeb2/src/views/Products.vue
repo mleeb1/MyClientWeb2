@@ -35,7 +35,7 @@ export default {
       axios.get('http://localhost:8081/api/products')
         .then((response) => {
           this.isBusy = false
-          this.products = response.data.value
+          this.products = response.data
         }, (error) => {
           this.isBusy = false
           this.error = error
