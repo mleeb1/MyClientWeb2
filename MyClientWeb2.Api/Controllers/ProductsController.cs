@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using Microsoft.AspNetCore.Mvc;
 using MyClientWeb2.Api.Models;
 
@@ -12,6 +13,9 @@ namespace MyClientWeb2.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Product>> Get()
         {
+            // Simulate delay
+            //Thread.Sleep(2000);
+
             return new List<Product>
             {
                 new Product { Id = 1, Name = "Product 1", Cost = 10.50M },

@@ -1,8 +1,12 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe('My First Test', () => {
+describe('My First Test', function () {
+  beforeEach(function () {
+    cy.request('GET', 'http://localhost:8081/api/products')
+  })
+
   it('Visits the app root url', () => {
-    cy.visit('http://localhost:8080')
+    cy.visit('/')
     cy.contains('h1', 'Welcome to Your Vue.js App')
   })
 })
