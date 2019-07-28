@@ -59,6 +59,12 @@ namespace MyClientWeb2
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Global catch-all file handler
+            app.Run(async (context) =>
+            {
+                context.Response.Redirect("/");
+        });
         }
     }
 }
